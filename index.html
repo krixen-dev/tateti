@@ -9,29 +9,29 @@
 </head>
 
 <body>
-  <section style="height: 100vh;" class="d-flex justify-content-center align-items-center bg-light">
+  <section style="height: 100vh;" class="d-flex justify-content-center align-items-center bg-light" id="form">
     <div class="container h-50 w-50 d-flex justify-content-center align-items-center">
       <div
         class="d-flex flex-column justify-content-center align-items-center w-75 h-75 border border-1 border-light-subtle rounded-1 bg-white">
-        <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="d-flex flex-column justify-content-center align-items-center" id="form__form1">
           <p class="form-label fw-bold fs-5">Ingrese nombre del jugador 1</p>
           <input type="text" class="form-control mb-4 text-center fst-italic">
           <div>
-            <button type="button" class="btn btn-success">Siguiente</button>
+            <button type="button" class="btn btn-success" id="btn-next">Siguiente</button>
           </div>
         </div>
 
-        <div class="d-none flex-column justify-content-center align-items-center">
+        <div class="d-none flex-column justify-content-center align-items-center" id="form__form2">
           <p class="form-label fw-bold fs-5">Ingrese nombre del jugador 2</p>
           <input type="text" class="form-control mb-4 text-center fst-italic">
           <div>
-            <button type="button" class="btn btn-success">Empezar juego</button>
+            <button type="button" class="btn btn-success" id="btn-play-game">Empezar juego</button>
           </div>
         </div>
       </div>
   </section>
 
-  <section class="d-none">
+  <section class="d-none" id="game">
     <div>
       <p>TURNO: </p>
       <P> JUGADOR 1</P>
@@ -58,6 +58,7 @@
       </div>
     </div>
   </section>
+  <script src="src/index.js"></script>
 </body>
 
 </html>
