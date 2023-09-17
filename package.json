@@ -1,0 +1,22 @@
+{
+  "name": "tateti",
+  "version": "1.0.0",
+  "description": "clásico juego ta te ti ",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krixen-dev/tateti.git"
+  },
+  "author": "krixen.dev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krixen-dev/tateti/issues"
+  },
+  "homepage": "https://github.com/krixen-dev/tateti#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.2"
+  }
+}
