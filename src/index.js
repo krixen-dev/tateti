@@ -37,6 +37,7 @@ function turnPlayer1() {
   $squares.forEach(function ($square) {
     $square.onclick = function () {
       sequencePlayer1.push($square.id);
+      paint($square, "primary");
       console.log(sequencePlayer1);
       flagTurn = true;
       blockInput();
@@ -49,6 +50,7 @@ function turnPlayer2() {
   $squares.forEach(function ($square) {
     $square.onclick = function () {
       sequencePlayer2.push($square.id);
+      paint($square, "danger");
       console.log(sequencePlayer2);
       flagTurn = false;
       blockInput();
@@ -74,5 +76,9 @@ function blockInput() {
     $square.onclick = function () {
     }
   })
+}
+
+function paint($element, color) {
+  $element.classList.add("bg-"+ color);
 }
 
