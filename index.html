@@ -15,7 +15,7 @@
         class="d-flex flex-column justify-content-center align-items-center w-75 h-75 border border-1 border-light-subtle rounded-1 bg-white">
         <div class="d-flex flex-column justify-content-center align-items-center" id="form__form1">
           <p class="form-label fw-bold fs-5">Ingrese nombre del jugador 1</p>
-          <input type="text" class="form-control mb-4 text-center fst-italic">
+          <input type="text" class="form-control mb-4 text-center fst-italic" id="form__name_player1">
           <div>
             <button type="button" class="btn btn-success" id="btn-next">Siguiente</button>
           </div>
@@ -23,7 +23,7 @@
 
         <div class="d-none flex-column justify-content-center align-items-center" id="form__form2">
           <p class="form-label fw-bold fs-5">Ingrese nombre del jugador 2</p>
-          <input type="text" class="form-control mb-4 text-center fst-italic">
+          <input type="text" class="form-control mb-4 text-center fst-italic" id="form__name_player2">
           <div>
             <button type="button" class="btn btn-success" id="btn-play-game">Empezar juego</button>
           </div>
@@ -32,39 +32,39 @@
   </section>
 
   <section class="d-none" id="game" style="height: 100vh;">
-    <div class="container bg-light d-flex flex-column align-items-center justify-content-center">
+    <div class="container bg-light d-flex flex-column align-items-center justify-content-center" id="panel">
       <div class="row bg-white" style="height: 12em; width: 36em;">
-        <div class="col border border-3 border-black m-1">
+        <div class="square col border border-3 border-black m-1" id="square-1">
           cuadro1
         </div>
-        <div class="col border border-3 border-black m-1">
+        <div class="square col border border-3 border-black m-1" id="square-2">
           cuadro2
         </div>
-        <div class="col border border-3 border-black m-1">
+        <div class="square col border border-3 border-black m-1" id="square-3">
           cuadro3
         </div>
       </div>
 
       <div class="row bg-white" style="height: 12em; width: 36em;">
-        <div class="col border border-3 border-black m-1">
+        <div class="square col border border-3 border-black m-1" id="square-4">
           cuadro4
         </div>
-        <div class="col border border-3 border-black m-1">
+        <div class="square col border border-3 border-black m-1" id="square-5">
           cuadro5
         </div>
-        <div class="col border border-3 border-black m-1">
+        <div class="square col border border-3 border-black m-1" id="square-6">
           cuadro6
         </div>
       </div>
 
       <div class="row bg-white" style="height: 12em; width: 36em;">
-        <div class="col border border-3 border-black m-1">
+        <div class="square col border border-3 border-black m-1" id="square-7">
           cuadro7
         </div>
-        <div class="col border border-3 border-black m-1">
+        <div class="square col border border-3 border-black m-1" id="square-8">
           cuadro8
         </div>
-        <div class="col border border-3 border-black m-1">
+        <div class="square col border border-3 border-black m-1" id="square-9">
           cuadro9
         </div>
       </div>
