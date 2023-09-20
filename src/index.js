@@ -1,3 +1,5 @@
+(function juegoTaTeTi() {
+
 const btnNext = document.getElementById("btn-next");
 const btnPlayGame = document.getElementById("btn-play-game");
 const player1 = document.getElementById("form__name_player1");
@@ -6,6 +8,7 @@ const panel = document.getElementById("panel");
 const $squares = panel.querySelectorAll(".square");
 
 let flag = false;
+let winner = false;
 let sequencePlayer1 = [];
 let sequencePlayer2 = [];
 
@@ -21,7 +24,10 @@ btnPlayGame.onclick = function () {
 }
 
 function manageRound() {
-  if (!flag) {
+  if (winner) {
+    console.log("aquí se mostraría el tablero de ganador");
+    lockInput();
+  }else if (!flag) {
     turnPlayer1();
     console.log("turno player1");
   }else{
@@ -33,13 +39,20 @@ function manageRound() {
 function turnPlayer1() {
   $squares.forEach(function ($square) {
     $square.onclick = function () {
-      sequencePlayer1.push($square.id);
       paint($square, "primary");
-      verifyWinningSequence(sequencePlayer1);
-      console.log(sequencePlayer1);
-      flag = true;
-      blockInput();
-      manageRound();
+      setTimeout(() => {
+      sequencePlayer1.push($square.id);
+      if (verifyWinningSequence(sequencePlayer1)) {
+        console.log("ganaste");
+        winner = true;
+        manageRound();
+      }else{
+        console.log(sequencePlayer1);
+        flag = true;
+        lockInput();
+        manageRound();
+      }
+      }, 500);
     }
   })
 }
@@ -47,37 +60,28 @@ function turnPlayer1() {
 function turnPlayer2() {
   $squares.forEach(function ($square) {
     $square.onclick = function () {
-      sequencePlayer2.push($square.id);
       paint($square, "danger");
-      verifyWinningSequence(sequencePlayer2);
-      console.log(sequencePlayer2);
-      flag = false;
-      blockInput();
-      manageRound();
+      setTimeout(() => {
+        sequencePlayer2.push($square.id);
+        if (verifyWinningSequence(sequencePlayer2)) {
+          console.log("ganaste");
+          winner = true;
+          manageRound();
+        }else{
+          console.log(sequencePlayer2);
+          flag = false;
+          lockInput();
+          manageRound();
+        }
+      }, 500);
     }
   })
 }
 
-function hideElement($element) {
-  $element.classList.remove("d-flex");
-  $element.classList.add("d-none");
-}
-
-function showElement($element) {
-  $element.classList.remove("d-none");
-  $element.classList.add("d-flex");
-}
-
-function blockInput() {
-  $squares.forEach(function ($square) {
-    $square.onclick = function () {
-    }
-  })
-}
-
-function paint($element, color) {
-  $element.classList.add("bg-"+ color);
-  $element.classList.add("selected");
+function sequenceWinner(sequence, num1, num2, num3) {
+  if (sequence.includes("square-"+num1) && sequence.includes("square-"+num2) && sequence.includes("square-"+num3) ) {
+    return true;
+  }
 }
 
 function verifyWinningSequence(sequence) {
@@ -91,14 +95,33 @@ function verifyWinningSequence(sequence) {
         sequenceWinner(sequence,3,6,9)||
         sequenceWinner(sequence,7,5,3)||
         sequenceWinner(sequence,9,5,1)){
-      return alert("ganaste!")
+      return true;
     }
   }
 }
 
-function sequenceWinner(sequence, num1, num2, num3) {
-  if (sequence.includes("square-"+num1) && sequence.includes("square-"+num2) && sequence.includes("square-"+num3) ) {
-    return true;
-  }
+function hideElement($element) {
+  $element.classList.remove("d-flex");
+  $element.classList.add("d-none");
 }
+
+function showElement($element) {
+  $element.classList.remove("d-none");
+  $element.classList.add("d-flex");
+}
+
+function lockInput() {
+  $squares.forEach(function ($square) {
+    $square.onclick = function () {
+    }
+  })
+}
+
+function paint($element, color) {
+  $element.classList.add("bg-"+ color);
+  $element.classList.add("selected");
+}
+
+})();
+
 
