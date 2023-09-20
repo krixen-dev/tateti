@@ -4,6 +4,7 @@ const player1 = document.getElementById("form__name_player1");
 const player2 = document.getElementById("form__name_player2");
 const panel = document.getElementById("panel");
 const $squares = panel.querySelectorAll(".square");
+
 let flag = false;
 let sequencePlayer1 = [];
 let sequencePlayer2 = [];
@@ -76,6 +77,7 @@ function blockInput() {
 
 function paint($element, color) {
   $element.classList.add("bg-"+ color);
+  $element.classList.add("selected");
 }
 
 function verifyWinningSequence(sequence) {
